@@ -1,7 +1,5 @@
 package ca.sait.crs.models;
 
-// TODO: Make this class immutable.
-
 /**
  * Represents a student.
  * @author Nick Hamnett <nick.hamnett@sait.ca>

@@ -2,8 +2,6 @@ package ca.sait.crs.models;
 
 import ca.sait.crs.contracts.Course;
 
-// TODO: Make this class immutable.
-
 /**
  * Represents a required (for credit) course.
  * @author Nick Hamnett <nick.hamnett@sait.ca>
