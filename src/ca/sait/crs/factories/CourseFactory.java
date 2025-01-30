@@ -43,8 +43,8 @@ public class CourseFactory {
      * @return True if the course code is valid.
      */
     private boolean validateCode(String code) {
-        // TODO: Add logic to test code is valid.
-        return true;
+        String[] courseCode = code.split("-");
+        return courseCode[0].length() == 4 && courseCode[1].length() == 3;
     }
 
     /**
@@ -53,8 +53,7 @@ public class CourseFactory {
      * @return True if course name is valid.
      */
     private boolean validateName(String name) {
-        // TODO: Add logic to test name is valid.
-        return true;
+        return name.length() <= 40;
     }
 
     /**
@@ -63,7 +62,6 @@ public class CourseFactory {
      * @return True if credits value is valid.
      */
     private boolean validateCredits(int credits) {
-        // TODO: Add logic to test credits is valid.
-        return true;
+        return credits == 3 || credits == 0;
     }
 }

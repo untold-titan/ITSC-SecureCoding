@@ -35,8 +35,9 @@ public class StudentFactory {
      * @return True if name is valid
      */
     private boolean validateName(String name) {
-        // TODO: Add logic to test name is valid.
-        return true;
+        // Not sure what criteria the name needs...
+        // Assuming its first and last
+        return name.contains(" ");
     }
 
     /**
@@ -45,7 +46,6 @@ public class StudentFactory {
      * @return True if GPA is valid
      */
     private boolean validateGpa(double gpa) {
-        // TODO: Add logic to test GPA is valid (hint: GPAs cannot be negative or more than 4.0).
-        return true;
+        return !(gpa > 4) && !(gpa < 0);
     }
 }
