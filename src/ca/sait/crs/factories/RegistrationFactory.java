@@ -46,15 +46,12 @@ public class RegistrationFactory {
      * @return True if course is valid.
      */
     private boolean validateCourse(Course course) {
-
         if(course.getCode().length() == 3 && Integer.parseInt(course.getCode()) < 400){
             if(course.getName().length()== 4 && course.getName().toUpperCase().equals(course.getName())){
                 return true;
             }
         }
         return false;
-
-
     }
 
     /**
@@ -63,7 +60,6 @@ public class RegistrationFactory {
      * @return True if student is valid.
      */
     private boolean validateStudent(Student student) {
-
         if(student.getGpa() > 2.0){
             return true;
         }

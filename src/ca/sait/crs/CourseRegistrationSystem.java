@@ -1,6 +1,7 @@
 package ca.sait.crs;
 
 import ca.sait.crs.contracts.*;
+import ca.sait.crs.factories.*;
 import ca.sait.crs.services.*;
 
 import java.io.FileNotFoundException;
@@ -110,7 +111,7 @@ public class CourseRegistrationSystem {
      * Registers a student with a course.
      */
     private void register() {
-        // TODO: Create instance of StudentFactory.
+        StudentFactory stuFactory = new StudentFactory();
 
         System.out.print("Enter course code: ");
         String courseCode = this.scanner.nextLine();
@@ -124,8 +125,7 @@ public class CourseRegistrationSystem {
         double studentGpa = this.scanner.nextDouble();
 
         try {
-            // TODO: Call build() method in StudentFactory instance to handle validating parameters and creating new Student object.
-            Student student = new ca.sait.crs.models.Student(studentName, studentGpa);
+            Student student = stuFactory.build(studentName,studentGpa);
 
             Registration registration = this.registrationService.register(student, course);
 
@@ -133,7 +133,6 @@ public class CourseRegistrationSystem {
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
             System.out.println("Please try again.");
-            return;
         }
     }
 }
