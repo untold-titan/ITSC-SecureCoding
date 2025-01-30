@@ -3,6 +3,7 @@ package ca.sait.crs.services;
 import ca.sait.crs.contracts.*;
 import ca.sait.crs.exceptions.CannotCreateRegistrationException;
 import ca.sait.crs.contracts.Student;
+import ca.sait.crs.factories.RegistrationFactory;
 
 import java.util.ArrayList;
 
@@ -31,11 +32,23 @@ public class RealRegistrationService implements RegistrationService {
         // TODO: Create instance of RegistrationFactory.
         // TODO: Call build() method in RegistrationFactory instance to handle validating parameters and creating new Registration object.
         // Do not catch CannotCreateRegistrationException in this method.
-        Registration registration = new ca.sait.crs.models.Registration(course, student);
+        RegistrationFactory registrationFactory = new RegistrationFactory();
 
-        this.registrations.add(registration);
+        ca.sait.crs.models.Registration newRegistration = null;
+            try {
+                newRegistration =registrationFactory.build(course, student);
+            } catch (CannotCreateRegistrationException e) {
+                System.out.println("Cannot register course: "+ e);
+            }
 
-        return registration;
+            // Hypothetically speaking this should never be hit, but intellij complains if I don't init course lol
+            if(course == null){
+                System.out.println("Failed to register course");
+                newRegistration = null;
+            }
+        this.registrations.add(newRegistration);
+
+        return newRegistration;
     }
 
     /**

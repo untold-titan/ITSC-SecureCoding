@@ -2,7 +2,7 @@ package ca.sait.crs.contracts;
 
 
 import ca.sait.crs.exceptions.CannotCreateRegistrationException;
-import ca.sait.crs.contracts.Registration;
+
 
 import java.util.ArrayList;
 

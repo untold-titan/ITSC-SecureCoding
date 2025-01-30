@@ -2,7 +2,6 @@ package ca.sait.crs.models;
 
 import ca.sait.crs.contracts.Course;
 import ca.sait.crs.contracts.Student;
-import ca.sait.crs.exceptions.CannotCreateRegistrationException;
 
 // TODO: Make this class immutable.
 

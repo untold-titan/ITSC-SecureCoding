@@ -43,8 +43,10 @@ public class CourseFactory {
      * @return True if the course code is valid.
      */
     private boolean validateCode(String code) {
-        String[] courseCode = code.split("-");
-        return courseCode[0].length() == 4 && courseCode[1].length() == 3;
+        if(code.length() == 3 && Integer.parseInt(code) < 400){
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -53,7 +55,10 @@ public class CourseFactory {
      * @return True if course name is valid.
      */
     private boolean validateName(String name) {
-        return name.length() <= 40;
+        if(name.length()== 4 && name.toUpperCase().equals(name)){
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -62,6 +67,9 @@ public class CourseFactory {
      * @return True if credits value is valid.
      */
     private boolean validateCredits(int credits) {
-        return credits == 3 || credits == 0;
+        if(credits == 3 || credits == 0){
+            return true;
+        }
+        return false;
     }
 }
