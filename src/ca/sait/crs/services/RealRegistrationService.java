@@ -43,10 +43,10 @@ public class RealRegistrationService implements RegistrationService {
 
             // Hypothetically speaking this should never be hit, but intellij complains if I don't init course lol
             if(course == null){
-                System.out.println("Failed to create course");
-                registrationFactory = null;
+                System.out.println("Failed to register course");
+                newRegistration = null;
             }
-
+        this.registrations.add(newRegistration);
 
         return newRegistration;
     }
