@@ -10,7 +10,7 @@ import ca.sait.crs.contracts.Student;
  * @author Nick Hamnett <nick.hamnett@sait.ca>
  * @since June 1, 2023
  */
-public class Registration implements ca.sait.crs.contracts.Registration {
+public final class Registration implements ca.sait.crs.contracts.Registration {
     /**
      * Associated course
      */

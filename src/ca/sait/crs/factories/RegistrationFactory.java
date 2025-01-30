@@ -14,7 +14,7 @@ import ca.sait.crs.models.Registration;
  * @author Nick Hamnett <nick.hamnett@sait.ca>
  * @since June 1, 2023
  */
-public class RegistrationFactory {
+public final class RegistrationFactory {
 
     public RegistrationFactory() {
     }

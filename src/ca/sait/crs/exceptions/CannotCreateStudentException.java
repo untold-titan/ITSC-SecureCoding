@@ -5,7 +5,7 @@ package ca.sait.crs.exceptions;
  * @author Nick Hamnett <nick.hamnett@sait.ca>
  * @since June 1, 2023
  */
-public class CannotCreateStudentException extends Exception {
+public final class CannotCreateStudentException extends Exception {
     public CannotCreateStudentException(String message) {
         super(message);
     }

@@ -2,7 +2,7 @@ package ca.sait.crs;
 
 import java.io.FileNotFoundException;
 
-public class AppDriver {
+public final class AppDriver {
     /**
      * Entry point to program.
      * @param args

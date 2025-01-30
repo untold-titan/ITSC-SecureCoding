@@ -8,7 +8,7 @@ import ca.sait.crs.exceptions.CannotCreateStudentException;
  * @author Nick Hamnett <nick.hamnett@sait.ca>
  * @since June 1, 2023
  */
-public class StudentFactory {
+public final class StudentFactory {
     public StudentFactory() {
 
     }

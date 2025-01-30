@@ -14,7 +14,7 @@ import java.util.ArrayList;
  * @author Nick Hamnett <nick.hamnett@sait.ca>
  * @since June 1, 2023
  */
-public class RealRegistrationService implements RegistrationService {
+public final class RealRegistrationService implements RegistrationService {
     private ArrayList<Registration> registrations;
 
     public RealRegistrationService() {
