@@ -3,8 +3,6 @@ package ca.sait.crs.models;
 import ca.sait.crs.contracts.Course;
 import ca.sait.crs.contracts.Student;
 
-// TODO: Make this class immutable.
-
 /**
  * Represents a registration.
  * @author Nick Hamnett <nick.hamnett@sait.ca>
