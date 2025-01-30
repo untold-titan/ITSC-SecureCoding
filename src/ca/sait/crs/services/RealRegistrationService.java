@@ -3,6 +3,7 @@ package ca.sait.crs.services;
 import ca.sait.crs.contracts.*;
 import ca.sait.crs.exceptions.CannotCreateRegistrationException;
 import ca.sait.crs.contracts.Student;
+import ca.sait.crs.factories.RegistrationFactory;
 
 import java.util.ArrayList;
 
@@ -31,9 +32,10 @@ public class RealRegistrationService implements RegistrationService {
         // TODO: Create instance of RegistrationFactory.
         // TODO: Call build() method in RegistrationFactory instance to handle validating parameters and creating new Registration object.
         // Do not catch CannotCreateRegistrationException in this method.
-        Registration registration = new ca.sait.crs.models.Registration(course, student);
+        RegistrationFactory registrationFactory = new RegistrationFactory();
 
-        this.registrations.add(registration);
+        ca.sait.crs.models.Registration registration = registrationFactory.build(course, student);
+
 
         return registration;
     }

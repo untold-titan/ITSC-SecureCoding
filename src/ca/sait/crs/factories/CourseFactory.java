@@ -3,6 +3,7 @@ package ca.sait.crs.factories;
 
 import ca.sait.crs.contracts.Course;
 import ca.sait.crs.exceptions.CannotCreateCourseException;
+import ca.sait.crs.services.CourseService;
 
 /**
  * Creates course instances.
@@ -44,7 +45,10 @@ public class CourseFactory {
      */
     private boolean validateCode(String code) {
         // TODO: Add logic to test code is valid.
-        return true;
+        if(code.length() == 3 && Integer.parseInt(code) < 400){
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -54,7 +58,10 @@ public class CourseFactory {
      */
     private boolean validateName(String name) {
         // TODO: Add logic to test name is valid.
-        return true;
+        if(name.length()== 4 && name.toUpperCase().equals(name)){
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -64,6 +71,9 @@ public class CourseFactory {
      */
     private boolean validateCredits(int credits) {
         // TODO: Add logic to test credits is valid.
-        return true;
+        if(credits == 3 || credits == 0){
+            return true;
+        }
+        return false;
     }
 }
