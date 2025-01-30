@@ -1,8 +1,8 @@
 package ca.sait.crs.services;
 
 import ca.sait.crs.contracts.Course;
-import ca.sait.crs.models.OptionalCourse;
-import ca.sait.crs.models.RequiredCourse;
+import ca.sait.crs.exceptions.CannotCreateCourseException;
+import ca.sait.crs.factories.CourseFactory;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -13,6 +13,7 @@ import java.util.Scanner;
 
 /**
  * Manages courses
+ *
  * @author Nick Hamnett <nick.hamnett@sait.ca>
  * @since June 1, 2023
  */
@@ -25,10 +26,11 @@ public class CourseService {
     /**
      * Holds Course instances.
      */
-    private ArrayList<Course> courses;
+    private final ArrayList<Course> courses;
 
     /**
      * Initializes CourseService instance
+     *
      * @throws FileNotFoundException Thrown if COURSES_CSV file can't be found.
      */
     public CourseService() throws FileNotFoundException {
@@ -39,6 +41,7 @@ public class CourseService {
 
     /**
      * Finds course with code
+     *
      * @param code Course code
      * @return Course instance or null if not found.
      */
@@ -54,6 +57,7 @@ public class CourseService {
 
     /**
      * Gets copy of courses array list.
+     *
      * @return Array list of courses.
      */
     public ArrayList<Course> getCourses() {
@@ -62,13 +66,14 @@ public class CourseService {
 
     /**
      * Loads courses from CSV file.
+     *
      * @throws FileNotFoundException Thrown if file can't be found.
      */
     private void load() throws FileNotFoundException {
         File file = new File(COURSES_CSV);
         Scanner scanner = new Scanner(file);
 
-        // TODO: Create instance of CourseFactory
+        CourseFactory courseFactory = new CourseFactory();
 
         while (scanner.hasNextLine()) {
             String line = scanner.nextLine();
@@ -83,15 +88,22 @@ public class CourseService {
             String name = parts[1];
             int credits = Integer.parseInt(parts[2]);
 
-            // TODO: Call build() method in CourseFactory instance to handle validating parameters and creating new Course object.
-            // TODO: Catch and handle CannotCreateCourseException.
+            Course course = null;
 
-            Course course;
+            try {
+                if (credits > 0) {
+                    course = courseFactory.build(code, name, credits);
+                } else {
+                    course = courseFactory.build(code, name,0 );
+                }
+            } catch (CannotCreateCourseException e) {
+                System.out.println("Cannot create course");
+            }
 
-            if (credits > 0) {
-                course = new RequiredCourse(code, name, credits);
-            } else {
-                course = new OptionalCourse(code, name);
+            // Hypothetically speaking this should never be hit, but intellij complains if I don't init course lol
+            if(course == null){
+                System.out.println("Failed to create course");
+                return;
             }
 
             this.courses.add(course);
