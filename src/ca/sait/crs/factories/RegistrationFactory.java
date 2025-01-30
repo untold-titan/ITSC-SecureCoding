@@ -37,7 +37,8 @@ public class RegistrationFactory {
             throw new CannotCreateRegistrationException("Student is invalid.");
         }
 
-        return null;
+        Registration newRegistration = new Registration(course,student);
+        return newRegistration;
     }
 
     /**
@@ -46,9 +47,15 @@ public class RegistrationFactory {
      * @return True if course is valid.
      */
     private boolean validateCourse(Course course) {
-        if(course.getCode().length() == 3 && Integer.parseInt(course.getCode()) < 400){
-            if(course.getName().length()== 4 && course.getName().toUpperCase().equals(course.getName())){
-                return true;
+        if(course.getCode().contains("-")){
+            String[] parts = course.getCode().split("-");
+            String title = parts[0];
+            int number = Integer.parseInt(parts[1]);
+            if(title.length() == 4 && number < 400){
+                if(course.getName().length() <= 40){
+                    return true;
+                }
+
             }
         }
         return false;

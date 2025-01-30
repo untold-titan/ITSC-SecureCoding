@@ -26,7 +26,9 @@ public class StudentFactory {
         if (!this.validateGpa(gpa))
             throw new CannotCreateStudentException("Student GPA is invalid.");
 
-        return null;
+
+        ca.sait.crs.models.Student newStudent = new ca.sait.crs.models.Student(name,gpa);
+        return newStudent;
     }
 
     /**
