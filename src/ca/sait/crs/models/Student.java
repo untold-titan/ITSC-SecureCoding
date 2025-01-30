@@ -7,7 +7,7 @@ package ca.sait.crs.models;
  * @author Nick Hamnett <nick.hamnett@sait.ca>
  * @since June 1, 2023
  */
-public class Student implements ca.sait.crs.contracts.Student {
+public final class Student implements ca.sait.crs.contracts.Student {
     /**
      * Name of student
      */

@@ -11,7 +11,7 @@ import ca.sait.crs.models.RequiredCourse;
  * @author Nick Hamnett <nick.hamnett@sait.ca>
  * @since June 1, 2023
  */
-public class CourseFactory {
+public final class CourseFactory {
 
     public CourseFactory() {
     }

@@ -12,7 +12,7 @@ import java.util.Scanner;
  * @author Nick Hamnett <nick.hamnett@sait.ca>
  * @since June 1, 2023
  */
-public class CourseRegistrationSystem {
+public final class CourseRegistrationSystem {
     private final Scanner scanner;
 
     private final CourseService courseService;

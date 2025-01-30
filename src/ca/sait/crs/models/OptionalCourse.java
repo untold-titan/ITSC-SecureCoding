@@ -9,7 +9,7 @@ import ca.sait.crs.contracts.Course;
  * @author Nick Hamnett <nick.hamnett@sait.ca>
  * @since June 1, 2023
  */
-public class OptionalCourse implements Course {
+public final class OptionalCourse implements Course {
     /**
      * Course code
      */

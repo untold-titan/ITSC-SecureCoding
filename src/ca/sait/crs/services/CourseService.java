@@ -17,7 +17,7 @@ import java.util.Scanner;
  * @author Nick Hamnett <nick.hamnett@sait.ca>
  * @since June 1, 2023
  */
-public class CourseService {
+public final class CourseService {
     /**
      * Path to courses.csv file.
      */
