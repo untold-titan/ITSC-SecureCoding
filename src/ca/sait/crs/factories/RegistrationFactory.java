@@ -1,13 +1,13 @@
 package ca.sait.crs.factories;
 
-import ca.sait.crs.CourseRegistrationSystem;
+
 import ca.sait.crs.contracts.Course;
 import ca.sait.crs.contracts.Student;
-import ca.sait.crs.exceptions.CannotCreateCourseException;
+
 import ca.sait.crs.exceptions.CannotCreateRegistrationException;
-import ca.sait.crs.models.OptionalCourse;
+
 import ca.sait.crs.models.Registration;
-import ca.sait.crs.models.RequiredCourse;
+
 
 /**
  * Creates Registration instances.
@@ -46,7 +46,7 @@ public class RegistrationFactory {
      * @return True if course is valid.
      */
     private boolean validateCourse(Course course) {
-        // TODO: Add logic to test course is valid.
+
         if(course.getCode().length() == 3 && Integer.parseInt(course.getCode()) < 400){
             if(course.getName().length()== 4 && course.getName().toUpperCase().equals(course.getName())){
                 return true;
@@ -63,7 +63,7 @@ public class RegistrationFactory {
      * @return True if student is valid.
      */
     private boolean validateStudent(Student student) {
-        // TODO: Add logic to test student is valid.
+
         if(student.getGpa() > 2.0){
             return true;
         }

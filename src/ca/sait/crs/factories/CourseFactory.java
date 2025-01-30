@@ -3,7 +3,6 @@ package ca.sait.crs.factories;
 
 import ca.sait.crs.contracts.Course;
 import ca.sait.crs.exceptions.CannotCreateCourseException;
-import ca.sait.crs.services.CourseService;
 
 /**
  * Creates course instances.

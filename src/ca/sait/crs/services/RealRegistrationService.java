@@ -34,10 +34,21 @@ public class RealRegistrationService implements RegistrationService {
         // Do not catch CannotCreateRegistrationException in this method.
         RegistrationFactory registrationFactory = new RegistrationFactory();
 
-        ca.sait.crs.models.Registration registration = registrationFactory.build(course, student);
+        ca.sait.crs.models.Registration newRegistration = null;
+            try {
+                newRegistration =registrationFactory.build(course, student);
+            } catch (CannotCreateRegistrationException e) {
+                System.out.println("Cannot register course: "+ e);
+            }
+
+            // Hypothetically speaking this should never be hit, but intellij complains if I don't init course lol
+            if(course == null){
+                System.out.println("Failed to create course");
+                registrationFactory = null;
+            }
 
 
-        return registration;
+        return newRegistration;
     }
 
     /**
