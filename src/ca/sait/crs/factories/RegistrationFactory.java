@@ -51,11 +51,10 @@ public final class RegistrationFactory {
             String[] parts = course.getCode().split("-");
             String title = parts[0];
             int number = Integer.parseInt(parts[1]);
-            if(title.length() == 4 && number < 400){
-                if(course.getName().length() <= 40){
+            if (title.length() == 4 && number < 400){
+                if (course.getName().length() <= 40) {
                     return true;
                 }
-
             }
         }
         return false;
@@ -67,7 +66,7 @@ public final class RegistrationFactory {
      * @return True if student is valid.
      */
     private boolean validateStudent(Student student) {
-        if(student.getGpa() > 2.0){
+        if (student.getGpa() > 2.0){
             return true;
         }
         return false;
