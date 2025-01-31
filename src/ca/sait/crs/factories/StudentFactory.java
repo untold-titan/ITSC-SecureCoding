@@ -38,7 +38,7 @@ public final class StudentFactory {
      */
     private boolean validateName(String name) {
         // Not sure what criteria the name needs...
-        // Assuming its first and last
+        // Assuming it's first and last
         return name.contains(" ");
     }
 
